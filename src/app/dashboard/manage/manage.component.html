@@ -1,0 +1,87 @@
+
+<div>
+  <div class="row">
+      <div class="col-2">
+        <app-side-bar></app-side-bar>
+      </div>
+      <div class="col-10">
+          <div class="row mt-5"></div>
+          <div class="row">
+              <!-- Search form -->
+              <div class="col-lg-6">
+                <form class="d-flex" role="search">
+                  <input type="search" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
+                </form>
+              </div>
+              
+              <!-- Spacer -->
+              <div class="col-lg-4 text-lg-end">
+                <button  class="btn btn-dark" (click)="openDialog()">Add product</button>
+
+              </div>
+          </div>              
+            
+          <div class="row mt-5">
+              <div class="col-10">
+                  <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Remove</th>
+                            <th scope="col">Update</th>
+                          </tr>
+                        </thead>
+           
+                        <tbody>
+                          <tr *ngFor="let product of products">
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.quantity }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.status }}</td>
+                            
+                            <td>
+                              <button class="btn btn-outline-dark">
+                                <i class="bi bi-trash3"></i>
+                              </button>
+                            </td>
+                            <td>
+                              <button class="btn btn-dark" >
+                                <i class="bi bi-pencil-square"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        
+          
+                  </table>
+              </div>
+          </div>
+          <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+

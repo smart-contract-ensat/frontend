@@ -13,49 +13,66 @@
         </ul>
       </li>
       <li>
-        <a routerLink="/dashboard/profile">
+        <a routerLink="/user/profile">
           <i class='bi bi-person' ></i>
           <span class="link_name">Profile</span>
         </a>
         <ul class="sub-menu">
-          <li><a class="link_name" routerLink="/dashboard/profile">Profile</a></li>
+          <li><a class="link_name" routerLink="/user/profile">Profile</a></li>
         </ul>
       </li>
-      <li>
-        <a routerLink="/dashboard/buy">
+      <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">
+        <a routerLink="/user/buy">
           <i class='bi bi-cart2' ></i>
           <span class="link_name">Raw material</span>
         </a>
         <ul class="sub-menu">
-          <li><a class="link_name" routerLink="/dashboard/buy">Buy raw material</a></li>
+          <li><a class="link_name" routerLink="/user/buy">Buy raw material</a></li>
         </ul>
       </li>
       <li>
         <div class="iocn-link">
-          <a routerLink="/dashboard/manage">
+          <a routerLink="/user/manage">
             <i class="bi bi-clipboard2"></i>
             <span class="link_name">Manage</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name"routerLink="/dashboard/manage">Manage</a></li>
-          <li><a routerLink="/dashboard/manage"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add product</a> </li>
-          <li><a routerLink="/dashboard/manage"><i class="bi bi-list-ul"  style="font-size: 20px;margin: 0;"></i>Manage products</a></li>
+          <li><a class="link_name"routerLink="/user/manage">Manage</a></li>
+          <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a routerLink="/user/manage"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add product</a> </li>
+          <li *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'"><a routerLink="/user/manage"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add MP</a> </li>
+          <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a routerLink="/user/manage"><i class="bi bi-list-ul"  style="font-size: 20px;margin: 0;"></i>Manage products</a></li>
         
         </ul>
       </li>
       <li>
         <div class="iocn-link">
-          <a routerLink="/dashboard/journey">
+          <a routerLink="/user/journey">
             <i class='bi bi-airplane-engines' ></i>
             <span class="link_name" >traceability</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" routerLink="/dashboard/journey">traceability</a></li>
+          <li><a class="link_name" routerLink="/user/journey">traceability</a></li>
           <li><a routerLink="/dashboard/journey"><i class="bi bi-map" style="font-size: 20px;margin: 0;"></i>Product traceability</a></li>
+        </ul>
+      </li>
+
+
+      <li>
+        <div class="iocn-link">
+          <a routerLink="/dashboard/journey">
+            <i class='bi bi-door-open-fill' ></i>
+            <span class="link_name" >log out</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" (click)="logout()" routerLink="/">Log out</a></li>
+          <li><a routerLink="/"><i class="bi bi-door-open-fill" (click)="logout()" style="font-size: 20px;margin: 0;"></i>log out</a></li>
+        
         </ul>
       </li>
 

@@ -1,32 +1,39 @@
-<div class="container-fluid card login-container">
-  <h3 class="text-center">Login</h3>
-  <hr>
-  <div class="alert alert-danger" role="alert" *ngIf="errorMessages.length">
-    <p *ngFor="let msg of errorMessages">{{msg}}</p>
+<div>
+  <div class="row align-items-center">
+   <div class="col-4">
+    <img src="../../../assets/images/back.jpg" alt="" style="width: 100%;">
+   </div>
+
+   <div class="col-6 mx-5">
+    <h1 class="mt-5 mb-2">Blockchain</h1>
+    <p  class="mb-5">Sign In to your account</p>
+
+        <mat-form-field appearance="outline"  class="input">
+            <mat-label>Email address</mat-label>
+            <input matInput [(ngModel)]="authRequest.email" type="email" class="form-control" id="login">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="authRequest.password" type="password" class="form-control" id="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+        <button class="btn btn-dark" (click)="login()" type="button">
+            Login
+        </button>
+        <div>
+          Don't have an account?&nbsp;
+          <button (click)="register()" type="button" class="btn btn-link">
+            Register
+          </button>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessages.length">
+          <p *ngFor="let msg of errorMessages">{{msg}}</p>
+        </div>
+
   </div>
-  <div class="mb-3">
-    <label for="login" class="form-label">Email address</label>
-    <input [(ngModel)]="authRequest.email" type="email" class="form-control" id="login" placeholder="name@example.com">
+    
+
   </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input [(ngModel)]="authRequest.password" type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <div class="d-flex justify-content-between mb-3">
-    <button (click)="login()" type="button" class="btn btn-primary">
-      <em class="fas fa-sign-in-alt">&nbsp;Sign in</em>
-    </button>
-    <div>
-      Don't have an account?&nbsp;
-      <button (click)="register()" type="button" class="btn btn-link">
-        Register
-      </button>
-    </div>
-  </div>
-</div> 
-
-
-
-
-
-
+</div>

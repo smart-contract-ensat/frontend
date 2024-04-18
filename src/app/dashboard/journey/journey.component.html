@@ -1,0 +1,57 @@
+
+  <div class="row align-items-center">
+      <div class="col-1">
+        <app-side-bar></app-side-bar>
+      </div>
+      <div class="col-11">
+        <div class="col-lg-6 my-5">
+          <form class="d-flex" role="search">
+            <input type="search" class="form-control form-control-light text-bg-light" placeholder="Search..." aria-label="Search">
+          </form>
+        </div>
+        <div style="width: 600px;">
+          <mat-stepper orientation="vertical">
+            <mat-step>
+              <ng-template matStepLabel>Produced</ng-template>
+              <ng-template matStepContent>
+                <ul>
+                  <li>Casablanca, Morocco</li>
+                  <li>02/05/2024</li>
+                </ul>
+                <button mat-button matStepperNext>Next</button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Picked</ng-template>
+              <ng-template matStepContent>
+                <ul>
+                  <li>Casablanca, Morocco</li>
+                  <li>02/05/2024</li>
+                </ul>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </ng-template>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Received</ng-template>
+              <ul>
+                <li>Casablanca, Morocco</li>
+                <li>02/05/2024</li>
+              </ul>
+              <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Sold</ng-template>
+              <ul>
+                <li>Casablanca, Morocco</li>
+                <li>02/05/2024</li>
+              </ul>
+              <button mat-button matStepperPrevious>Back</button>
+            </mat-step>
+          </mat-stepper>
+        </div>
+
+
+      </div>
+  </div>

@@ -1,45 +1,53 @@
-<div class="container-fluid card login-container">
-  <h3 class="text-center">Create an account</h3>
-  <hr>
-  <div class="alert alert-danger" role="alert" *ngIf="errorMessages.length">
-    <p *ngFor="let msg of errorMessages">{{msg}}</p>
+<div>
+  <div class="row align-items-center">
+   <div class="col-4">
+    <img src="../../../assets/images/back.jpg" alt="" style="width: 100%;">
+   </div>
+
+   <div class="col-6 mx-5">
+    <h1 class="mt-5 mb-2">Blockchain</h1>
+    <p  class="mb-5">Create an account</p>
+
+        <mat-form-field appearance="outline"  class="input">
+            <mat-label>Firstname</mat-label>
+            <input matInput [(ngModel)]="userDto.firstname" type="text" class="form-control" id="firstname">
+        </mat-form-field>
+        <mat-form-field appearance="outline"  class="input">
+          <mat-label>Lastname</mat-label>
+          <input matInput [(ngModel)]="userDto.lastname" type="text" class="form-control" id="lastname">
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="input">
+          <mat-label>Account Type</mat-label>
+          <mat-select id="inputState" [(ngModel)]="userDto.role">
+            <mat-option value="3">Fourniseur</mat-option>
+            <mat-option value="4">Producteur</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline"  class="input">
+          <mat-label>Email address</mat-label>
+          <input matInput [(ngModel)]="userDto.email" type="email" class="form-control" id="login">
+        </mat-form-field>
+        <mat-form-field appearance="outline"  class="input">
+          <mat-label>Password</mat-label>
+          <input matInput [(ngModel)]="userDto.password" type="password" class="form-control" id="password">
+        </mat-form-field>
+
+
+        <button class="btn btn-dark" (click)="register()" type="button">
+            Register
+        </button>
+        <div>
+          Already have an account?&nbsp;
+          <button (click)="login()" type="button" class="btn btn-link">
+            Log In
+          </button>
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessages.length">
+          <p *ngFor="let msg of errorMessages">{{msg}}</p>
+        </div>
+
   </div>
-  <div class="mb-3">
-    <label for="firstname" class="form-label">Firstname</label>
-    <input [(ngModel)]="userDto.firstname" type="text" class="form-control" id="firstname" placeholder="Firstname">
-  </div>
-  <div class="mb-3">
-    <label for="lastname" class="form-label">Lastname</label>
-    <input  [(ngModel)]="userDto.lastname" type="text" class="form-control" id="lastname" placeholder="Lastname">
-  </div>
-  <div class="mb-3">
-    <label for="inputState" class="form-label">Account Type</label>
-    <select id="inputState" class="form-select" [(ngModel)]="userDto.role">
-      <option selected value="3">Fourniseur</option>
-      <option value="4">Producteur</option>
-    </select>
-  </div>
-  <div class="mb-3">
-    <label for="login" class="form-label">Email address</label>
-    <input [(ngModel)]="userDto.email" type="email" class="form-control" id="login" placeholder="name@example.com">
-  </div>
-  <div class="mb-3">
-    <label for="password" class="form-label">Password</label>
-    <input [(ngModel)]="userDto.password" type="password" class="form-control" id="password" placeholder="Password">
-  </div>
-  <!--<div class="mb-3">
-    <label for="repeat-password" class="form-label">Repeat password</label>
-    <input type="password" class="form-control" id="repeat-password" placeholder="Repeat password">
-  </div>-->
-  <div class="d-flex justify-content-between mb-3">
-    <button (click)="register()" type="button" class="btn btn-primary">
-      <em class="fas fa-sign-in-alt">&nbsp;Create an account</em>
-    </button>
-    <div>
-      Already have an account?&nbsp;
-      <button (click)="login()" type="button" class="btn btn-link">
-      Login
-    </button>
-    </div>
+    
+
   </div>
 </div>

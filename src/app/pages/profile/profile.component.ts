@@ -5,6 +5,7 @@ import { UserDto } from '../../services/models/user-dto';
 import { Address } from 'cluster';
 import { AddressDto } from '../../services/models/address-dto';
 import { AddressService } from '../../services/services/address.service';
+import { VariableAuthService } from 'src/app/variable-auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,10 +25,15 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private helperService: HelperService
+    private helperService: HelperService,
+    private variableAuthService:VariableAuthService
   ) { }
 
+
+  typeAccount: string="";
+
   ngOnInit(): void {
+    this.typeAccount=this.variableAuthService.getType();
     this.userService.findById({
       'user-id': this.helperService.userId
     }).subscribe({

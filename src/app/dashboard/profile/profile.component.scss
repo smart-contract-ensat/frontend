@@ -1,0 +1,19 @@
+.img{
+    border-radius: 50%;
+    width: 100px;
+}
+.row {
+    display: flex;
+    justify-content: space-between; /* Distributes items evenly */
+}
+
+.flex-container {
+    display: flex;
+    flex: 1;
+}
+
+.flex-item {
+    flex: 1;
+    margin-right: 10px; /* Adjust as needed */
+}
+

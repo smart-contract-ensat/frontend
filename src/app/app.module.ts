@@ -32,6 +32,13 @@ import { MaterialExampleModule } from 'src/material.module';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { BuyComponent } from './dashboard/buy/buy.component';
+import { JourneyComponent } from './dashboard/journey/journey.component';
+import { DialogContentExampleDialog, ManageComponent } from './dashboard/manage/manage.component';
+import { ProductDetailsComponent } from './dashboard/product-details/product-details.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { Profile2Component } from './dashboard/profile/profile.component';
+import { ProductCardComponent } from './dashboard/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +61,15 @@ import { HeaderComponent } from './shared/header/header.component';
     AccessDeinedComponent,
     HomeComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    BuyComponent,
+    JourneyComponent,
+    ManageComponent,
+    ProductDetailsComponent,
+    SideBarComponent,
+    DialogContentExampleDialog,
+    Profile2Component,
+    ProductCardComponent
   ],
   imports: [
     BrowserModule,

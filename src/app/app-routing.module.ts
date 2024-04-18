@@ -17,6 +17,11 @@ import { TokenGuardService } from './services/guard/token-guard/token-guard.serv
 import { AdminGuardService } from './services/guard/admin-guard/admin-guard.service';
 import { AccessDeinedComponent } from './pages/access-deined/access-deined.component';
 import { HomeComponent } from './home/home.component';
+import { Profile2Component } from './dashboard/profile/profile.component';
+import { ManageComponent } from './dashboard/manage/manage.component';
+import { JourneyComponent } from './dashboard/journey/journey.component';
+import { BuyComponent } from './dashboard/buy/buy.component';
+import { ProductDetailsComponent } from './dashboard/product-details/product-details.component';
 
 const routes: Routes = [
   {
@@ -60,10 +65,7 @@ const routes: Routes = [
         path: 'new-transaction',
         component: NewTransactionComponent
       },
-      {
-        path: 'new-contact',
-        component: NewContactComponent
-      },
+    
       {
         path: 'new-contact/:idContact',
         component: NewContactComponent
@@ -71,7 +73,25 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
-      },
+      }, {
+        path: "manage",
+        component: ManageComponent
+    },
+    {
+        path: "journey",
+        component: JourneyComponent
+    },
+    {
+        path: "profile",
+        component: ProfileComponent
+    },
+    {
+        path: "buy",
+        component: BuyComponent
+    }, {
+        path: "details",
+        component: ProductDetailsComponent
+    },
       {
         path: '',
         redirectTo: 'dashboard',

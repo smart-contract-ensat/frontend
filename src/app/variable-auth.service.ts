@@ -5,11 +5,15 @@ import { Injectable } from '@angular/core';
 })
 export class VariableAuthService {
 
-  constructor() { }
+  constructor() {
+    if(localStorage.getItem("typeAccount")!=null){
+      this.type_account=localStorage.getItem("typeAccount");
+    }
+   }
 
-  public type_account:string="";
-
-  getType():string { return this.type_account}
+  public type_account!:string|null;
+  
+  getType():any { return this.type_account}
   setType(value:string) { this.type_account = value}
 
 }

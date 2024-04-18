@@ -36,11 +36,11 @@ export class LoginComponent implements OnInit {
         const decodedToken = helper.decodeToken(data.token);
 
         if (decodedToken.authorities[0].authority === 'ROLE_ADMIN') {
-          await this.router.navigate(['admin/dashboard']);
+          await this.router.navigate(['/admin/customers']);
         } else {
           console.log(decodedToken.authorities[0].authority);
           this.variableAuth.setType(decodedToken.authorities[0].authority);
-          await this.router.navigate(['user/dashboard']);
+          await this.router.navigate(['user/profile']);
         }
       },
       error: (err) => {
