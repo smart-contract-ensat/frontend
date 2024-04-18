@@ -1,7 +1,7 @@
-export { UserControllerService } from './services/user-controller.service';
-export { TransactionControllerService } from './services/transaction-controller.service';
-export { ContactControllerService } from './services/contact-controller.service';
-export { AuthenticationControllerService } from './services/authentication-controller.service';
-export { AddressControllerService } from './services/address-controller.service';
-export { AccountControllerService } from './services/account-controller.service';
-export { StatisticsControllerService } from './services/statistics-controller.service';
+export { UserService } from './services/user.service';
+export { TransactionsService } from './services/transactions.service';
+export { ContactService } from './services/contact.service';
+export { AuthenticationService } from './services/authentication.service';
+export { AddressService } from './services/address.service';
+export { AccountsService } from './services/accounts.service';
+export { StatisticsService } from './services/statistics.service';

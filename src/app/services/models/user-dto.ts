@@ -6,4 +6,7 @@ export interface UserDto {
   id?: number;
   lastname: string;
   password: string;
+  iban?: string;
+  active?: boolean;
+  role?:number;
 }

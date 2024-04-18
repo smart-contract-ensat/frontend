@@ -1,1 +1,6 @@
-<p>main-admin-page works!</p>
+<div class="container container-fluid">
+  <app-menu [isAdmin]="true"></app-menu>
+  <div class="card">
+    <router-outlet></router-outlet>
+  </div>
+</div>

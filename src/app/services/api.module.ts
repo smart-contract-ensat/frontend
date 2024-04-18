@@ -4,14 +4,13 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { UserControllerService } from './services/user-controller.service';
-import { TransactionControllerService } from './services/transaction-controller.service';
-import { ContactControllerService } from './services/contact-controller.service';
-import { AuthenticationControllerService } from './services/authentication-controller.service';
-import { AddressControllerService } from './services/address-controller.service';
-import { AccountControllerService } from './services/account-controller.service';
-import { StatisticsControllerService } from './services/statistics-controller.service';
-
+import { UserService } from './services/user.service';
+import { TransactionsService } from './services/transactions.service';
+import { ContactService } from './services/contact.service';
+import { AuthenticationService } from './services/authentication.service';
+import { AddressService } from './services/address.service';
+import { AccountsService } from './services/accounts.service';
+import { StatisticsService } from './services/statistics.service';
 /**
  * Module that provides all services and configuration.
  */
@@ -20,13 +19,13 @@ import { StatisticsControllerService } from './services/statistics-controller.se
   exports: [],
   declarations: [],
   providers: [
-    UserControllerService,
-    TransactionControllerService,
-    ContactControllerService,
-    AuthenticationControllerService,
-    AddressControllerService,
-    AccountControllerService,
-    StatisticsControllerService,
+    UserService,
+    TransactionsService,
+    ContactService,
+    AuthenticationService,
+    AddressService,
+    AccountsService,
+    StatisticsService,
     ApiConfiguration
   ],
 })

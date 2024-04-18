@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+export interface LightInfoInput {
+  title?: string;
+  amount?: number;
+  infoStyle?: 'bg-primary' | 'bg-success' | 'bg-warning' | 'bg-danger';
+}
 
 @Component({
   selector: 'app-light-info',
@@ -6,6 +12,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./light-info.component.scss']
 })
 export class LightInfoComponent implements OnInit {
+
+  @Input() infoInput: LightInfoInput = {};
 
   constructor() { }
 
