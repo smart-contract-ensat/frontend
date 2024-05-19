@@ -1,4 +1,7 @@
 /* tslint:disable */
+
+import { Product } from "./product";
+
 /* eslint-disable */
 export interface UserDto {
   email: string;
@@ -9,4 +12,5 @@ export interface UserDto {
   iban?: string;
   active?: boolean;
   role?:number;
+  products?:Product[]
 }

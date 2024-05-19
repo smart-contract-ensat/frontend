@@ -11,10 +11,17 @@
   </div>
   <div class="p-3">
     <h2>My profile</h2>
+   
+    <p>Type de compte : 
 
-    <span class="badge text-bg-warning " *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'">FOURNISEUR</span>
-    <span class="badge text-bg-danger "  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">PRODUCTEUR</span>
+      <span class="badge text-bg-warning " *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'">FOURNISEUR</span>
+      <span class="badge text-bg-danger "  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">PRODUCTEUR</span>
+      <span class="badge text-bg-danger "  *ngIf="typeAccount=='ROLE_USER'">Client</span>
 
+    </p>
+    
+  
+      <div class="my-5"></div>
 
     <div class="alert alert-success" role="alert" *ngIf="successMsg">
       <p>{{successMsg}}</p>

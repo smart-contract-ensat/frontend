@@ -9,11 +9,17 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
-        <li><a  routerLink="/product-code" class="nav-link px-2 link-dark">Product code</a></li>
+        <li *ngIf="typeAccount!=null"><a routerLink="/user/manage" class="nav-link px-2 link-dark">Dashboard</a></li>
+        <li ><a   routerLink="/list-product-pub" class="nav-link px-2 link-dark">Products</a></li>
       </ul>
   
-      <div class="col-md-3 text-end">
+      <div class="col-md-3 text-end" *ngIf="typeAccount==null">
         <button type="button" class="btn btn-outline-dark me-2" (click)="navigateToSignIn()">Login</button>
       </div>
+
+      <div class="col-md-3 text-end" *ngIf="typeAccount!=null">
+        <button type="button" class="btn btn-outline-dark me-2" (click)="logout()">Log Out</button>
+      </div>
+
     </header>
   </div>

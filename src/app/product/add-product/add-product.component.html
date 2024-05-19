@@ -1,0 +1,150 @@
+
+
+<div>
+  <div class="row">
+      <div class="col-2">
+        <app-side-bar></app-side-bar>
+      </div>
+
+      <div class="col-8">
+
+        <div class="container my-5">
+          <div class="p-5 text-center bg-body-tertiary rounded-3">
+              <div style="margin: auto;">
+                  <i class="bi bi-database-add" style="font-size: 80px;"></i>
+              </div>
+            <h1 class="text-body-emphasis mt-3">Ajouter Produit </h1>
+            <p class="col-lg-8 mx-auto fs-8 text-muted">
+              veuillez remplir tous les champs obligatoires  <code>*</code>
+            </p>
+        
+        
+                  
+                  <form class="example-form mt-5" [formGroup]="form" style="width: 100%;margin: auto;">
+          
+                  
+                    <table class="example-full-width" cellspacing="0">
+                  <!-- ========================================================= -->
+                      <tr>
+                      <td>
+                        <mat-form-field class="example-full-width" >
+                        <mat-label>Nom de produit</mat-label>
+                        <input matInput required formControlName="nom">
+                        </mat-form-field> 
+                    </td>
+                    </tr>
+          
+                    <tr>
+                      <td>
+          
+                        <mat-form-field class="example-full-width" >
+          
+                          <mat-label>Category</mat-label>
+                          <mat-select formControlName="categorie" >
+                      
+                          <mat-option *ngFor="let item of arrayCategoryProduct" value={{item.nom}} >{{item.nom}}</mat-option>
+                                        
+          
+                          </mat-select>
+          
+                        </mat-form-field>
+                        
+                      </td>
+                    </tr>
+                  </table>
+                  
+                    <p>
+                      <mat-form-field class="example-full-width" >
+                        <mat-label>Description</mat-label>
+                        <textarea matInput placeholder="Ex. 100 Main St" formControlName="description" required>1600 Amphitheatre Pkwy</textarea>
+                      </mat-form-field>
+          
+                      <mat-form-field class="example-full-width" >
+                        <mat-label> Lieu d'origine</mat-label>
+                        <textarea matInput required formControlName="lieu_origine"></textarea>
+                      </mat-form-field>
+                    </p>
+          
+          
+          
+                    <mat-form-field class="example-chip-list"  style="width:100% ;">
+                      <mat-label>Caractéristiques</mat-label>
+                      <mat-chip-list #chipList aria-label="Fruit selection">
+                        <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                          {{fruit}}
+                          <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                          </button>
+                        </mat-chip>
+                        <input placeholder="..."
+                               [matChipInputFor]="chipList"
+                               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                               [matChipInputAddOnBlur]="addOnBlur"
+                               (matChipInputTokenEnd)="add($event)"
+                               required
+                               >
+                      </mat-chip-list>
+                    </mat-form-field>
+          
+          
+                    <table class="example-full-width" cellspacing="0">
+                      <!-- ========================================================= -->
+                          <tr>
+                          <td>
+                            <mat-form-field class="example-full-width" >
+                            <mat-label>Usage</mat-label>
+                            <input matInput required formControlName="usage">
+                            </mat-form-field> 
+                        </td>
+                        </tr>
+                      </table>
+                      
+          
+          
+          
+          
+                    <table class="example-full-width" cellspacing="0">
+          
+                      
+                      <tr>
+                      <td><mat-form-field class="example-full-width" >
+                        <mat-label>Poids brut unique(kg)</mat-label>
+                        <input matInput placeholder="0.7kg" formControlName="poids_brut_unique" required>
+                      </mat-form-field></td>
+                      <td><mat-form-field class="example-full-width" >
+                        <mat-label>Taille du paquet unique</mat-label>
+                        <input matInput placeholder="Ex. 2x5x2cm" formControlName="taille_du_paquet_unique" required>
+                      </mat-form-field></td>
+          
+                    </tr>
+                   <tr>
+          
+                    <td>
+                      <mat-form-field class="example-full-width" required >
+                      <mat-label>Prix(DH)</mat-label>
+                      <input matInput type="number" #postalCode maxlength="5" placeholder="Ex. 94105" value="94043" required formControlName="prix">
+                      <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                    </mat-form-field></td>
+          
+                   </tr>
+                  </table>
+          
+                  <button mat-raised-button color="primary" (click)="addProduct()"> Ajouter </button>         
+          
+                  </form>
+                
+          </div>
+        </div>
+        
+        
+        
+        
+ 
+      </div>
+
+
+
+      <div class="col-2"></div>
+
+  </div>
+</div>    

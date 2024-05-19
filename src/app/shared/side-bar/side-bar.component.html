@@ -1,9 +1,9 @@
 <div class="sidebar close">
   <div class="logo-details" >
     <img src="/assets/images/logo.png" style="width: 50px; border-radius: 10px; margin-top:10px; margin-left:15px">
-  </div>
+  </div >
     <ul class="nav-links">
-      <li>
+      <li  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR' ||  typeAccount=='ROLE_USER_FOURNISEUR'">
         <a routerLink="/dashboard">
           <i class='bi bi-columns-gap' ></i>
           <span class="link_name">Dashboard</span>
@@ -27,23 +27,24 @@
           <span class="link_name">Raw material</span>
         </a>
         <ul class="sub-menu">
-          <li><a class="link_name" routerLink="/user/buy">Buy raw material</a></li>
+          <li><a class="link_name" routerLink="/user/MP-list">Buy raw material</a></li>
         </ul>
       </li>
       <li>
-        <div class="iocn-link">
+        <div class="iocn-link"  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR' ||  typeAccount=='ROLE_USER_FOURNISEUR'">
           <a routerLink="/user/manage">
             <i class="bi bi-clipboard2"></i>
             <span class="link_name">Manage</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
+        <ul class="sub-menu" >
           <li><a class="link_name"routerLink="/user/manage">Manage</a></li>
-          <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a routerLink="/user/manage"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add product</a> </li>
-          <li *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'"><a routerLink="/user/manage"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add MP</a> </li>
-          <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a routerLink="/user/manage"><i class="bi bi-list-ul"  style="font-size: 20px;margin: 0;"></i>Manage products</a></li>
-        
+          <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a href="/user/product"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add product</a> </li>
+          <li *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'"><a href="/user/MP"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add MP</a> </li>
+          <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a href="/user/product-list"><i class="bi bi-list-ul"  style="font-size: 20px;margin: 0;"></i>List products</a></li>
+          <li *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'"><a href="/user/mp-list"><i class="bi bi-list-ul"  style="font-size: 20px;margin: 0;"></i>List MP</a></li>
+
         </ul>
       </li>
       <li>
@@ -63,6 +64,17 @@
 
       <li>
         <div class="iocn-link">
+          <a routerLink="/">
+            <i class="bi bi-house-door-fill"></i>
+            <span class="link_name" >Home</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+      </li>
+
+
+      <li>
+        <div class="iocn-link">
           <a routerLink="/dashboard/journey">
             <i class='bi bi-door-open-fill' ></i>
             <span class="link_name" >log out</span>
@@ -70,8 +82,8 @@
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
-          <li><a class="link_name" (click)="logout()" routerLink="/">Log out</a></li>
-          <li><a routerLink="/"><i class="bi bi-door-open-fill" (click)="logout()" style="font-size: 20px;margin: 0;"></i>log out</a></li>
+          <li><a class="link_name" (click)="logout()">Log out</a></li>
+          <li><a ><i class="bi bi-door-open-fill" (click)="logout()" style="font-size: 20px;margin: 0;"></i>log out</a></li>
         
         </ul>
       </li>

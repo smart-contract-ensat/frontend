@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { SideBarComponent } from "../../shared/side-bar/side-bar.component";
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
@@ -17,6 +17,7 @@ export class ManageComponent {
 
   constructor(
     private router: Router,
+    private activatedRoute:ActivatedRoute,
     public dialog: MatDialog){}
 
   navigate(route: string[]) {
@@ -34,23 +35,7 @@ export class ManageComponent {
     }
 
     openDialog(): void {
-      const dialogConfig = {
-        autoFocus: true,
-        disableClose: true,
-        width: '500px', 
-        height: 'auto', 
-        position: {
-          top: '5%',
-          left: '40%',
-          transform: 'translate(-50%, -50%)'
-        }
-      };
-  
-      const dialogRef = this.dialog.open(DialogContentExampleDialog, dialogConfig);
-  
-      dialogRef.afterClosed().subscribe(result => {
-        console.log(`Dialog result: ${result}`);
-      });
+     this.router.navigate(['user/product']);
     }
   
 

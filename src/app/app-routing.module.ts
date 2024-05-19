@@ -22,16 +22,43 @@ import { ManageComponent } from './dashboard/manage/manage.component';
 import { JourneyComponent } from './dashboard/journey/journey.component';
 import { BuyComponent } from './dashboard/buy/buy.component';
 import { ProductDetailsComponent } from './dashboard/product-details/product-details.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { AddMPComponent } from './MP/add-mp/add-mp.component';
+import { ListProductComponent } from './product/list-product/list-product.component';
+import { ListMPComponent } from './MP/list-mp/list-mp.component';
+import { ListPublicProductComponent } from './shared/list-public-product/list-public-product.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
+import { PresentationComponent } from './shared/presentation/presentation.component';
 
 const routes: Routes = [
   {
     path:"",
-    component:HomeComponent
+    component:HomeComponent,
+    children:[
+
+      {
+        path:"",
+        component:PresentationComponent
+    
+      },
+
+      {
+        path:"list-product-pub",
+        component:ListPublicProductComponent
+    
+      },{
+        path:"list-product-pub/:id",
+        component:DetailProductComponent 
+      }
+    ]
   },
+
   {
     path: 'login',
     component: LoginComponent
   },
+
+ 
   {
     path: 'register',
     component: RegisterComponent
@@ -52,6 +79,21 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: UserDashboardComponent
+      },
+      {
+        path:"product",
+        component:AddProductComponent
+      },
+      {
+        path:"MP",
+        component:AddMPComponent
+      },
+      {
+        path:"product-list",
+        component:ListProductComponent
+      },{
+        path:"mp-list",
+        component:ListMPComponent
       },
       {
         path: 'my-transactions',

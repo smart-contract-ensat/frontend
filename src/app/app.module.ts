@@ -27,7 +27,7 @@ import { ChartsModule } from 'ng2-charts';
 import { DatepickerModule } from 'ng2-datepicker';
 import { DatePipe } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule} from '@angular/material/form-field';
 import { MaterialExampleModule } from 'src/material.module';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -39,6 +39,22 @@ import { ProductDetailsComponent } from './dashboard/product-details/product-det
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { Profile2Component } from './dashboard/profile/profile.component';
 import { ProductCardComponent } from './dashboard/product-card/product-card.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { ListProductComponent } from './product/list-product/list-product.component';
+import { DetailProductComponent } from './product/detail-product/detail-product.component';
+import { UpdateProductComponent } from './product/update-product/update-product.component';
+import { AddMPComponent } from './MP/add-mp/add-mp.component';
+import { ListMPComponent } from './MP/list-mp/list-mp.component';
+import { DetailMPComponent } from './MP/detail-mp/detail-mp.component';
+import { UpdateMPComponent } from './MP/update-mp/update-mp.component';
+import { TableComponent } from './shared/table/table.component';
+import { ListPublicProductComponent } from './shared/list-public-product/list-public-product.component';
+import { TableMPComponent } from './shared/table-mp/table-mp.component';
+import { PresentationComponent } from './shared/presentation/presentation.component';
+import { CommandeClientComponent } from './commande/commande-client/commande-client.component';
+import { CommandeProductsProducteurComponent } from './commande/commande-products-producteur/commande-products-producteur.component';
+import { CommandeMpProducteurComponent } from './commande/commande-mp-producteur/commande-mp-producteur.component';
+import { CommandeMpFourniseurComponent } from './commande/commande-mp-fourniseur/commande-mp-fourniseur.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +85,24 @@ import { ProductCardComponent } from './dashboard/product-card/product-card.comp
     SideBarComponent,
     DialogContentExampleDialog,
     Profile2Component,
-    ProductCardComponent
+    ProductCardComponent,
+    AddProductComponent,
+    ListProductComponent,
+    DetailProductComponent,
+    UpdateProductComponent,
+    AddMPComponent,
+    ListMPComponent,
+    DetailMPComponent,
+    UpdateMPComponent,
+    TableComponent,
+    ListPublicProductComponent,
+    TableMPComponent,
+    PresentationComponent,
+    CommandeClientComponent,
+    CommandeProductsProducteurComponent,
+    CommandeMpProducteurComponent,
+    CommandeMpFourniseurComponent,
+ 
   ],
   imports: [
     BrowserModule,
@@ -79,10 +112,14 @@ import { ProductCardComponent } from './dashboard/product-card/product-card.comp
     ChartsModule,
     DatepickerModule,
     BrowserAnimationsModule,    
-    MaterialExampleModule
+    MaterialExampleModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    ,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
