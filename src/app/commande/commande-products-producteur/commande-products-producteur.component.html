@@ -1,1 +1,189 @@
-<p>commande-products-producteur works!</p>
+
+<div>
+  <div class="row">
+      <div class="col-2">
+        <app-side-bar></app-side-bar>
+      </div>
+
+      <div class="col-8">
+          <main class="container">
+              <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+                <div class="lh-1">
+                  <h1 class="h6 mb-0 text-white lh-1">Mes commandes </h1>
+                </div>
+              </div>
+            
+              <div class="my-3 p-3 bg-body rounded shadow-sm" *ngFor="let item of commandeProductDtosProducteur">
+
+                <div class="alert alert-success" role="alert" *ngIf="item.fin==true">
+                     Le produit est disponible
+                </div>
+
+                        <button mat-stroked-button color="primary" *ngIf="item.valide==false" (click)="valide(item.id)" >Accepter</button>
+                        <button mat-stroked-button color="accent" disabled *ngIf="item.valide==true">Accepter </button>
+                        
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-gray-dark">ID Commande :{{item.codeCommandeProduct}}</strong>
+                   <strong>quantite :</strong>   {{item.quntity}} , <strong>votre specifications :</strong>  {{item.specifications}}
+                   </p>
+
+                </div>
+
+                <mat-card>
+                  <mat-card-content>
+                    <h3 class="example-h2">Etat d'avancement {{item.pourcentage}}%</h3>
+                
+                    <section class="example-section">
+                      <mat-progress-bar
+                          class="example-margin"
+                          color="accent"
+                           mode="buffer"
+                           [value]=item.pourcentage
+                          [bufferValue]="bufferValue">
+                      </mat-progress-bar>
+                    </section>
+                  </mat-card-content>
+                </mat-card>
+
+                <ul class="list-group list-group-flush" *ngFor="let itemProduct of item.products">
+                  <li class="list-group-item"><strong>Nom de Produit :</strong> {{itemProduct.nom}}</li>
+                  <li class="list-group-item"><strong>Categorie :</strong>{{itemProduct.categorie}}</li>
+                  <li class="list-group-item"><strong>Description :</strong>{{itemProduct.description}}</li>
+                  <li class="list-group-item"><strong>Caracteristiques :</strong>{{itemProduct.caracteristiques}}</li>
+                  <li class="list-group-item"><strong>Lieu D'origine :</strong>{{itemProduct.lieu_origine}}</li>
+                  <li class="list-group-item"><strong>Usage :</strong>{{itemProduct.usage}}</li>
+                  <li class="list-group-item"><strong>Poids brut unique :</strong>{{itemProduct.poids_brut_unique}} | <strong> Taille du paquet unique : </strong> {{itemProduct.taille_du_paquet_unique}}</li>
+                </ul>
+
+
+
+
+
+              <br>
+              <br>
+
+
+                <mat-expansion-panel hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      AVANCEMENT 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                     
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+
+                  <mat-list>
+                      <div mat-subheader>Etat d'avancement </div>
+                   
+                      <mat-list-item *ngIf="item.acquisitionMp==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line>
+                            <button mat-stroked-button color="accent" (click)="acquisitionmp(item.id)">Fin de Phase </button>
+                          
+                            Acquisition des matières premières. 
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.acquisitionMp==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> 
+                            <button mat-stroked-button color="accent" disabled>Fin de Phase </button>
+
+                            Acquisition des matières premières.</div>
+                        </mat-list-item>
+
+                         <!-- ====================== -->
+                        <mat-list-item *ngIf="item.transformationMp==false" >
+                          <mat-icon color="warn">highlight_off</mat-icon>
+
+                          <div mat-line> 
+                            <button mat-stroked-button color="accent" (click)="transformationmp(item.id)">Fin de Phase </button>
+
+                            Transformation des matières premières.
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.transformationMp==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line>
+                            <button mat-stroked-button color="accent" disabled>Fin de Phase </button>
+
+                            Transformation des matières premières.
+                          </div>
+                        </mat-list-item>
+
+                          <!-- ====================== -->
+                        <mat-list-item *ngIf="item.assemblageProduit==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line> 
+                            <button mat-stroked-button color="accent" (click)="assemblageproduit(item.id)">Fin de Phase </button>
+
+                            Assemblage du produit.
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.assemblageProduit==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> 
+                            <button mat-stroked-button color="accent" disabled>Fin de Phase </button>
+                            Assemblage du produit.
+                          </div>
+                        </mat-list-item>
+                           <!-- ====================== -->
+
+                        <mat-list-item *ngIf="item.eballageEtiquetageProduit==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line> 
+                            <button mat-stroked-button color="accent" (click)="eballageEtiquetageProduit(item.id)">Fin de Phase </button>
+
+                            Emballage et étiquetage du produit.
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.eballageEtiquetageProduit==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> 
+                            <button mat-stroked-button color="accent" disabled>Fin de Phase </button>
+
+                            Emballage et étiquetage du produit.
+                          </div>
+                        </mat-list-item>
+
+                          <!-- ====================== -->
+
+                          <mat-list-item  *ngIf="item.stockageDistributionProduit==false">
+                              <mat-icon color="warn">highlight_off</mat-icon>
+                              <div mat-line> 
+                                <button mat-stroked-button color="accent" (click)="stockageDistributionProduit(item.id)">Fin de Phase </button>
+
+                                Stockage et distribution du produit.
+                              </div>
+                            </mat-list-item>
+  
+                            <mat-list-item  *ngIf="item.stockageDistributionProduit==true">
+                              <mat-icon color="primary">check_circle</mat-icon>
+                              <div mat-line> 
+                                <button mat-stroked-button color="accent" disabled>Fin de Phase </button>
+
+                                Stockage et distribution du produit.
+                              </div>
+                            </mat-list-item>
+
+                      <mat-divider></mat-divider>
+                      <button mat-stroked-button color="accent"  *ngIf="item.pourcentage<100 || item.fin==true" disabled (click)="fin(item.id)"> clôture </button>
+                      <button mat-stroked-button color="accent" *ngIf="item.pourcentage>=100 && item.fin==false"  (click)="fin(item.id)"> clôture </button>
+
+                    </mat-list>
+                </mat-expansion-panel>
+
+
+
+
+
+              </div>
+            
+

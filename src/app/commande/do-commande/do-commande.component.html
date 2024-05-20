@@ -1,0 +1,96 @@
+<div class="my-5">
+    <div class="p-5 text-center bg-body-tertiary">
+      <div class="container py-5">
+        <h1 class="text-body-emphasis">confirmation de commande </h1>
+      
+  
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Producteur</strong> : {{user?.firstname}}  {{user?.lastname}}</li>
+            <li class="list-group-item"><strong>Nom de produit</strong> : {{product?.nom}} </li>
+            <li class="list-group-item"><strong>le Prix</strong> : {{product?.prix}} DH </li>
+          </ul>
+   
+
+
+
+
+
+            <div class="container">
+                <div class="row">
+                     <div class="col-md-2"></div>
+                     <div class="col-md-8">
+
+
+
+                        
+                  <form class="example-form mt-5" [formGroup]="form" style="width: 100%;margin: auto;">
+     
+        
+          
+                    <table class="example-full-width" cellspacing="0">
+          
+                      
+                      <tr>
+                      <td> 
+                        
+                        <mat-form-field class="example-full-width" required >
+                        <mat-label>Quantity</mat-label>
+                        <input matInput type="number" #postalCode maxlength="2" placeholder="Ex. 2" value="5" required formControlName="quantity">
+                        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                      </mat-form-field>
+                    
+                    </td>
+                   
+          
+                    </tr>
+
+                    <tr>
+
+                        <td>
+                            <mat-form-field class="example-full-width" >
+                                <mat-label>Specifications</mat-label>
+                                <textarea matInput placeholder="Ex. 100 Main St" formControlName="specifications" required>1600 Amphitheatre Pkwy</textarea>
+                              </mat-form-field>
+                  
+                        
+                        </td>
+                    </tr>
+                  
+                  </table>
+          
+                  <button mat-raised-button color="primary" (click)="envoyerCommande()"> Ajouter </button>         
+          
+                  </form>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+                     </div>
+                     <div class="col-md-2"></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+  

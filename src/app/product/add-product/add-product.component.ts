@@ -87,10 +87,10 @@ export class AddProductComponent implements OnInit {
               console.log(this.a);
               console.log(this.product);
 
-                //this.saveProduct(this.product);
+             
                 this.productService.addProduct(this.product).subscribe({
                   next:(res)=>{
-                    console.log(res)
+                   // console.log(res)
                   },
                   error:(err)=>{
                      console.log(err);
@@ -109,17 +109,7 @@ export class AddProductComponent implements OnInit {
  */
 
 
-saveProduct(newProduct:Product): void {
-  this.productService.save2({ body: newProduct }).subscribe({
-    next: (response) => {
-      console.log('Product saved successfully:', response);
-      // Réinitialiser le nouveau produit après l'enregistrement réussi
-    },
-    error: (error) => {
-      console.error(error);
-    }
-  });
-}
+
 
 
 

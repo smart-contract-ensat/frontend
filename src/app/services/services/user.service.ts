@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse, HttpContext } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpContext, HttpHeaders } from '@angular/common/http';
 import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
@@ -21,6 +21,33 @@ export class UserService extends BaseService {
   ) {
     super(config, http);
   }
+
+
+   
+
+
+  findByIdUser(id:number): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+
+    return this.http.get<any>("http://localhost:8080/users/"+id, {
+      headers,
+      responseType: 'json' as 'json'
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   /**
    * Path part for operation findAll

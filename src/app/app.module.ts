@@ -55,6 +55,9 @@ import { CommandeClientComponent } from './commande/commande-client/commande-cli
 import { CommandeProductsProducteurComponent } from './commande/commande-products-producteur/commande-products-producteur.component';
 import { CommandeMpProducteurComponent } from './commande/commande-mp-producteur/commande-mp-producteur.component';
 import { CommandeMpFourniseurComponent } from './commande/commande-mp-fourniseur/commande-mp-fourniseur.component';
+import { DoCommandeComponent } from './commande/do-commande/do-commande.component';
+import { ListPublicMpComponent } from './shared/list-public-mp/list-public-mp.component';
+import { DoMpCommandeComponent } from './commande/do-mp-commande/do-mp-commande.component';
 
 @NgModule({
   declarations: [
@@ -102,6 +105,10 @@ import { CommandeMpFourniseurComponent } from './commande/commande-mp-fourniseur
     CommandeProductsProducteurComponent,
     CommandeMpProducteurComponent,
     CommandeMpFourniseurComponent,
+    DoCommandeComponent,
+    ListPublicMpComponent,
+    DoMpCommandeComponent,
+    
  
   ],
   imports: [

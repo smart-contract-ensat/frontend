@@ -3,7 +3,7 @@
     <img src="/assets/images/logo.png" style="width: 50px; border-radius: 10px; margin-top:10px; margin-left:15px">
   </div >
     <ul class="nav-links">
-      <li  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR' ||  typeAccount=='ROLE_USER_FOURNISEUR'">
+      <!-- <li  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR' ||  typeAccount=='ROLE_USER_FOURNISEUR'">
         <a routerLink="/dashboard">
           <i class='bi bi-columns-gap' ></i>
           <span class="link_name">Dashboard</span>
@@ -11,7 +11,7 @@
         <ul class="sub-menu">
           <li><a class="link_name" routerLink="/dashboard"> Dashboard</a></li>
         </ul>
-      </li>
+      </li> -->
       <li>
         <a routerLink="/user/profile">
           <i class='bi bi-person' ></i>
@@ -21,7 +21,7 @@
           <li><a class="link_name" routerLink="/user/profile">Profile</a></li>
         </ul>
       </li>
-      <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">
+      <!-- <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">
         <a routerLink="/user/buy">
           <i class='bi bi-cart2' ></i>
           <span class="link_name">Raw material</span>
@@ -29,17 +29,17 @@
         <ul class="sub-menu">
           <li><a class="link_name" routerLink="/user/MP-list">Buy raw material</a></li>
         </ul>
-      </li>
+      </li> -->
       <li>
         <div class="iocn-link"  *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR' ||  typeAccount=='ROLE_USER_FOURNISEUR'">
-          <a routerLink="/user/manage">
+          <a>
             <i class="bi bi-clipboard2"></i>
             <span class="link_name">Manage</span>
           </a>
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu" >
-          <li><a class="link_name"routerLink="/user/manage">Manage</a></li>
+
           <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a href="/user/product"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add product</a> </li>
           <li *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'"><a href="/user/MP"> <i class="bi bi-plus-square" style="font-size: 20px;margin: 0;"></i>Add MP</a> </li>
           <li *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'"><a href="/user/product-list"><i class="bi bi-list-ul"  style="font-size: 20px;margin: 0;"></i>List products</a></li>
@@ -47,19 +47,7 @@
 
         </ul>
       </li>
-      <li>
-        <div class="iocn-link">
-          <a routerLink="/user/journey">
-            <i class='bi bi-airplane-engines' ></i>
-            <span class="link_name" >traceability</span>
-          </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-        </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" routerLink="/user/journey">traceability</a></li>
-          <li><a routerLink="/dashboard/journey"><i class="bi bi-map" style="font-size: 20px;margin: 0;"></i>Product traceability</a></li>
-        </ul>
-      </li>
+     
 
 
       <li>
@@ -71,6 +59,50 @@
           <i class='bx bxs-chevron-down arrow' ></i>
         </div>
       </li>
+
+      <li >
+        <div class="iocn-link" *ngIf="typeAccount=='ROLE_USER'">
+          <a href="/user/commande-product-client">
+            <i class="bi bi-bag-fill"></i>
+            <span class="link_name" >les commandes </span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+      </li>
+
+
+      <li>
+        <div class="iocn-link" *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">
+          <a href="/user/commande-product">
+            <i class="bi bi-bag-fill"></i>
+            <span class="link_name" >Commandes PD</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+      </li>
+
+      <li>
+        <div class="iocn-link" *ngIf="typeAccount=='ROLE_USER_FOURNISEUR'">
+          <a href="/user/commande-mp-fourniseur">
+            <i class="bi bi-bag-fill"></i>
+            <span class="link_name" >Commandes MP</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+      </li>
+
+
+
+      <li>
+        <div class="iocn-link" *ngIf="typeAccount=='ROLE_USER_PRODUCTEUR'">
+          <a href="/user/commande-mp-producteur">
+            <i class="bi bi-minecart-loaded"></i>
+            <span class="link_name" >MP</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+      </li>
+
 
 
       <li>

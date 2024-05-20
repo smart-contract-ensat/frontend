@@ -56,11 +56,11 @@
 
   <div class="p-5 mb-4 bg-body-tertiary rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold"  *ngIf="user.role==2" >contacter le producteur</h1>
-      <h1 class="display-5 fw-bold"   *ngIf="user.role==1">contacter le fourniseur</h1>
-      <p class="col-md-8 fs-5" *ngIf="user.role==2">le nome de Producteur : {{user.firstname}} {{user.lastname}}</p>
-      <p class="col-md-8 fs-5" *ngIf="user.role==1">le nome de Fourniseur : {{user.firstname}} {{user.lastname}} </p>
-      <p class="col-md-8 fs-5">email : {{user.email}}</p>
+      <h1 class="display-5 fw-bold"  *ngIf="user?.role==2" >contacter le producteur</h1>
+      <h1 class="display-5 fw-bold"   *ngIf="user?.role==1">contacter le fourniseur</h1>
+      <p class="col-md-8 fs-5" *ngIf="user?.role==2">le nome de Producteur : {{user?.firstname}} {{user?.lastname}}</p>
+      <p class="col-md-8 fs-5" *ngIf="user?.role==1">le nome de Fourniseur : {{user?.firstname}} {{user?.lastname}} </p>
+      <p class="col-md-8 fs-5">email : {{user?.email}}</p>
       <p class="col-md-8 fs-4"></p>
      
     </div>
@@ -80,7 +80,7 @@
     <p class="text-body-secondary">
         {{product?.description}}
     </p>
-        <a href="#" class="btn btn-primary ">commander maintenant</a>
+        <a [href]="'/confirmation/'+id_product" class="btn btn-primary ">commander maintenant</a>
       </div>
 
       <div class="col">

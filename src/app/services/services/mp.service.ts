@@ -26,6 +26,20 @@ export class MPService {
 
 
 
+  findMpsByUser(id:number): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+
+    return this.http.get<any>("http://localhost:8080/users/"+id, {
+      headers,
+      responseType: 'json' as 'json'
+    });
+  }
+
+
+
 
   findAllMPs(): Observable<any> {
     const headers = new HttpHeaders({
@@ -34,6 +48,20 @@ export class MPService {
     });
 
     return this.http.get<any>(this.apiUrl, {
+      headers,
+      responseType: 'json' as 'json'
+    });
+  }
+
+
+
+  findOneMpById(id:any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    });
+
+    return this.http.get<any>(`http://localhost:8080/mps/${id}`, {
       headers,
       responseType: 'json' as 'json'
     });

@@ -1,3 +1,4 @@
+import { CommandeMpFourniseurComponent } from './commande/commande-mp-fourniseur/commande-mp-fourniseur.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
@@ -29,6 +30,13 @@ import { ListMPComponent } from './MP/list-mp/list-mp.component';
 import { ListPublicProductComponent } from './shared/list-public-product/list-public-product.component';
 import { DetailProductComponent } from './product/detail-product/detail-product.component';
 import { PresentationComponent } from './shared/presentation/presentation.component';
+import { CommandeProductsProducteurComponent } from './commande/commande-products-producteur/commande-products-producteur.component';
+import { CommandeClientComponent } from './commande/commande-client/commande-client.component';
+import { DoCommandeComponent } from './commande/do-commande/do-commande.component';
+import { ListPublicMpComponent } from './shared/list-public-mp/list-public-mp.component';
+import { DetailMPComponent } from './MP/detail-mp/detail-mp.component';
+import { DoMpCommandeComponent } from './commande/do-mp-commande/do-mp-commande.component';
+import { CommandeMpProducteurComponent } from './commande/commande-mp-producteur/commande-mp-producteur.component';
 
 const routes: Routes = [
   {
@@ -42,6 +50,8 @@ const routes: Routes = [
     
       },
 
+ 
+
       {
         path:"list-product-pub",
         component:ListPublicProductComponent
@@ -49,7 +59,22 @@ const routes: Routes = [
       },{
         path:"list-product-pub/:id",
         component:DetailProductComponent 
-      }
+      }, {
+         path:"confirmation/:id",
+         component:DoCommandeComponent
+      },
+      {
+        path:"list-mp-pub",
+        component:ListPublicMpComponent
+      },
+      {
+        path:"list-mp-pub/:id",
+        component:DetailMPComponent
+      },
+      {
+        path:"confirmation-mp/:id",
+        component:DoMpCommandeComponent
+     },
     ]
   },
 
@@ -87,6 +112,30 @@ const routes: Routes = [
       {
         path:"MP",
         component:AddMPComponent
+      },
+
+      {
+        path:"commande-product",
+        component:CommandeProductsProducteurComponent
+          
+      },
+
+      {
+        path:"commande-mp-fourniseur",
+        component:CommandeMpFourniseurComponent
+          
+      },
+
+      {
+        path:"commande-mp-producteur",
+        component:CommandeMpProducteurComponent
+          
+      },
+
+      {
+        path:"commande-product-client",
+        component:CommandeClientComponent
+          
       },
       {
         path:"product-list",

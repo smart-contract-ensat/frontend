@@ -6,16 +6,15 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper/helper.service';
 import { Product } from 'src/app/services/models/product';
+import { MPService } from 'src/app/services/services/mp.service';
 import { ProductService } from 'src/app/services/services/product.service';
 
-
-
 @Component({
-  selector: 'app-list-public-product',
-  templateUrl: './list-public-product.component.html',
-  styleUrls: ['./list-public-product.component.scss']
+  selector: 'app-list-public-mp',
+  templateUrl: './list-public-mp.component.html',
+  styleUrls: ['./list-public-mp.component.scss']
 })
-export class ListPublicProductComponent implements OnInit {
+export class ListPublicMpComponent implements OnInit {
 
 
   displayedColumns: string[] = ['id', 'nom', 'prix', 'caracteristiques','categorie','menu'];
@@ -24,7 +23,12 @@ export class ListPublicProductComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private productService: ProductService,  private helperService: HelperService,private route:Router) {
+  constructor(
+    private productService: ProductService,  
+    private helperService: HelperService,
+    private route:Router,
+    private mpService:MPService
+  ) {
     this.loadProducts(); 
   
   }
@@ -32,7 +36,7 @@ export class ListPublicProductComponent implements OnInit {
     
 
   details(id:number) {
-    this.route.navigate([`/list-product-pub/${id}`]);
+    this.route.navigate([`/list-mp-pub/${id}`]);
     console.log(id)
     }
 
@@ -48,9 +52,13 @@ export class ListPublicProductComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+
+
+
   loadProducts() {
-    this.productService.findAllProducts().subscribe({
+    this.mpService.findAllMPs().subscribe({
       next: (result) => {
+        console.log(result);
         this.dataSource.data = result; // Assign the data to MatTableDataSource
       },
       error: (err) => {
@@ -82,5 +90,6 @@ export class ListPublicProductComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+
 
 }

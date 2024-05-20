@@ -1,1 +1,168 @@
-<p>commande-mp-producteur works!</p>
+
+<div>
+  <div class="row">
+      <div class="col-2">
+        <app-side-bar></app-side-bar>
+      </div>
+
+      <div class="col-8">
+          <main class="container">
+              <div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+                <div class="lh-1">
+                  <h1 class="h6 mb-0 text-white lh-1">Mes commandes </h1>
+                </div>
+              </div>
+            
+              <div class="my-3 p-3 bg-body rounded shadow-sm" *ngFor="let item of commandeMpDtoProducteur">
+                  <div class="alert alert-success" role="alert" *ngIf="item.fin==true">
+                      Le produit est disponible
+                 </div>
+                <p *ngIf="item.valide==true">  <i class="bi bi-check2-circle mx-3"></i> la commande a ete passé </p>
+
+                         <div class="alert alert-danger " role="alert" *ngIf="item.valide==false">
+                         <p > <i class="bi bi-exclamation-circle-fill mx-3"></i>la commande n'est pas encore accepté  </p>
+                        </div>
+
+                        
+                <div class="d-flex text-body-secondary pt-3">
+                  <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                  <p class="pb-3 mb-0 small lh-sm border-bottom">
+                    <strong class="d-block text-gray-dark">ID Commande :{{item.codeCommandeMp}}</strong>
+                   <strong>quantite :</strong>   {{item.quntity}} , <strong>votre specifications :</strong>  {{item.specifications}}
+                   </p>
+
+                </div>
+
+                <mat-card>
+                  <mat-card-content>
+                    <h3 class="example-h2">Etat d'avancement {{item.pourcentage}}%</h3>
+                
+                    <section class="example-section">
+                      <mat-progress-bar
+                          class="example-margin"
+                          color="accent"
+                           mode="buffer"
+                           [value]=item.pourcentage
+                          [bufferValue]="bufferValue">
+                      </mat-progress-bar>
+                    </section>
+                  </mat-card-content>
+                </mat-card>
+
+                <ul class="list-group list-group-flush" *ngFor="let itemProduct of item.mps">
+                  <li class="list-group-item"><strong>MP :</strong> {{itemProduct.nom}}</li>
+                  <li class="list-group-item"><strong>Categorie :</strong>{{itemProduct.categorie}}</li>
+                  <li class="list-group-item"><strong>Description :</strong>{{itemProduct.description}}</li>
+                  <li class="list-group-item"><strong>Caracteristiques :</strong>{{itemProduct.caracteristiques}}</li>
+                  <li class="list-group-item"><strong>Lieu D'origine :</strong>{{itemProduct.lieu_origine}}</li>
+                  <li class="list-group-item"><strong>Usage :</strong>{{itemProduct.usage}}</li>
+                  <li class="list-group-item"><strong>Poids brut unique :</strong>{{itemProduct.poids_brut_unique}} | <strong> Taille du paquet unique : </strong> {{itemProduct.taille_du_paquet_unique}}</li>
+                </ul>
+
+
+
+
+
+              <br>
+              <br>
+
+
+                <mat-expansion-panel hideToggle>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      AVANCEMENT 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                     
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+
+
+                  <mat-list>
+                      <div mat-subheader>Etat d'avancement </div>
+                   
+                      <mat-list-item *ngIf="item.preparation_du_commande==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line>preparation du commande. </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.preparation_du_commande==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> preparation du commande.</div>
+                        </mat-list-item>
+
+                         <!-- ====================== -->
+                        <mat-list-item *ngIf="item.chargement_de_mp==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line> chargement de MP
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.chargement_de_mp==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> chargement de MP
+                          </div>
+                        </mat-list-item>
+
+                          <!-- ====================== -->
+                        <mat-list-item *ngIf="item.repartition_logistique==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line> Repartition logistique
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.repartition_logistique==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> Repartition logistique
+                          </div>
+                        </mat-list-item>
+                           <!-- ====================== -->
+
+                        <mat-list-item *ngIf="item.en_livraison==false">
+                          <mat-icon color="warn">highlight_off</mat-icon>
+                          <div mat-line> En livraison
+                          </div>
+                        </mat-list-item>
+
+                        <mat-list-item *ngIf="item.en_livraison==true">
+                          <mat-icon color="primary">check_circle</mat-icon>
+                          <div mat-line> En livraison
+                          </div>
+                        </mat-list-item>
+
+                          <!-- ====================== -->
+
+                          <mat-list-item  *ngIf="item.reception==false">
+                            <mat-icon color="warn">
+                                
+                                highlight_off</mat-icon>
+                            <div mat-line> 
+                                
+                                <button mat-stroked-button color="accent" (click)="reception(item.id)">Reception </button>
+                                Reception MP
+                            </div>
+                          </mat-list-item>
+
+                          <mat-list-item  *ngIf="item.reception==true">
+                            <mat-icon color="primary">
+                              
+
+                                check_circle</mat-icon>
+                            <div mat-line>
+                                <button mat-stroked-button color="accent" disabled>Reception </button>
+                                Reception MP
+                            </div>
+                          </mat-list-item>
+
+                      <mat-divider></mat-divider>
+                     
+                    </mat-list>
+                </mat-expansion-panel>
+
+
+
+
+
+              </div>
+            
+

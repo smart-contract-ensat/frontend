@@ -28,7 +28,7 @@
                       <tr>
                       <td>
                         <mat-form-field class="example-full-width" >
-                        <mat-label>Nom de produit</mat-label>
+                        <mat-label>Nom de MP</mat-label>
                         <input matInput required formControlName="nom">
                         </mat-form-field> 
                     </td>
@@ -39,7 +39,7 @@
           
                         <mat-form-field class="example-full-width" >
           
-                          <mat-label>Category</mat-label>
+                          <mat-label>Category MP</mat-label>
                           <mat-select formControlName="categorie" >
                       
                           <mat-option *ngFor="let item of arrayCategoryProduct" value={{item.nom}} >{{item.nom}}</mat-option>
